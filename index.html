@@ -772,13 +772,13 @@
         color: #12263F;
         font-family: "Barlow Condensed", "Barlow", sans-serif;
         font-weight: 700;
-        font-size: 25px;
+        font-size: 20px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
         line-height: 1.12;
         display: flex;
         align-items: center;
-        padding: 10px 20px;
+        padding: 6px 16px;
       }
       .floor-block {
         position: relative;
@@ -787,7 +787,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 8px 12px;
+        padding: 4px 12px;
       }
       .floor-block + .floor-block { border-left: none; }
       /* Elegant vertical divider between each floor manager block: a thin
@@ -809,13 +809,13 @@
       .floor-block .fb-name {
         font-family: "Barlow Condensed", "Barlow", sans-serif;
         font-weight: 700;
-        font-size: 34px;
+        font-size: 20px;
         line-height: 1.05;
         color: #12263F;
         letter-spacing: 0.02em;
       }
       .floor-block .fb-time {
-        font-size: 23px;
+        font-size: 19px;
         font-weight: 700;
         color: #12263F;
         font-variant-numeric: tabular-nums;
@@ -1363,10 +1363,10 @@
       .board:not(.peak-on):not(.promo-on) .pg-row.total .c-val { font-size: 40px; line-height: 1; }
             .board:not(.peak-on):not(.promo-on) .home-lower { gap: 3px; flex: 0 0 auto; }
       .board:not(.peak-on):not(.promo-on) .floor-band { grid-template-columns: 300px repeat(4, 1fr); border-radius: 10px; }
-      .board:not(.peak-on):not(.promo-on) .floor-band .fb-title { font-size: 26px; padding: 2px 14px; border-right-width: 3px; }
-      .board:not(.peak-on):not(.promo-on) .floor-block { padding: 2px 10px; }
-      .board:not(.peak-on):not(.promo-on) .floor-block .fb-name { font-size: 40px; line-height: 1; }
-      .board:not(.peak-on):not(.promo-on) .floor-block .fb-time { font-size: 26px; line-height: 1.05; }
+      .board:not(.peak-on):not(.promo-on) .floor-band .fb-title { font-size: 20px; padding: 2px 12px; border-right-width: 3px; }
+      .board:not(.peak-on):not(.promo-on) .floor-block { padding: 1px 10px; }
+      .board:not(.peak-on):not(.promo-on) .floor-block .fb-name { font-size: 20px; line-height: 1; }
+      .board:not(.peak-on):not(.promo-on) .floor-block .fb-time { font-size: 19px; line-height: 1.05; }
       .board:not(.peak-on):not(.promo-on) .lower-row { gap: 12px; flex: 0 0 176px; min-height: 0; grid-template-columns: 1fr; }
       .board:not(.peak-on):not(.promo-on) .photo-accent { border-radius: 10px; }
       .board:not(.peak-on):not(.promo-on) .panel { padding: 2px 20px; border-radius: 10px; overflow: hidden; }
@@ -2878,11 +2878,11 @@
            only (class + position, so it survives content refills). ===== */
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body { padding: 6px 22px 8px; justify-content: space-between; gap: 2px; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-big { padding-bottom: 4px; }
-        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-fig { font-size: 48px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-fig { font-size: 20px; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-line { font-size: 25px; line-height: 1.15; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-sub { font-size: 24px; }
-        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-mtd { font-size: 34px; line-height: 1.05; }
-        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-of { font-size: 25px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-mtd { font-size: 20px; line-height: 1.05; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-of { font-size: 20px; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .progress { height: 12px; margin: 2px 0; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks { font-size: 26px; line-height: 1.1; border: 2px solid #12263F; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks th,
@@ -3082,7 +3082,7 @@
             <div class="info-box ib-box-mtd">
               <div class="ib-head">RMHC + MTD Operations</div>
               <div class="ib-body">
-                <div class="ib-big"><span class="ib-lab">RMHC Today</span><span class="ib-fig rmhc-total">$58.96</span></div>
+                <div class="ib-big"><span class="ib-lab">RMHC Today</span><span class="ib-fig rmhc-total">$64.72</span></div>
                 <div class="ib-line">Yesterday <strong>$84.92</strong> <span class="bad">&#10060;</span> <span class="ib-sub">pace needed $91.83 a day</span></div>
                 <div class="ib-mtd">$1,949 <span class="ib-of">of $2,500 goal</span></div>
                 <div class="progress" role="img" aria-label="RMHC progress: 78 percent of the $2,500 goal">
@@ -3119,28 +3119,28 @@
             <div class="totals-grid">
               <div class="total-tile">
                 <div class="t-label">OEPE</div>
-                <div class="t-value">113<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">119<span class="t-mark ok">&#10003;</span></div>
                 <div class="t-cap">Target 150 or less</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">R2P</div>
-                <div class="t-value">43<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">42<span class="t-mark ok">&#10003;</span></div>
                 <div class="t-cap">Target under 100</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">KVS</div>
-                <div class="t-value">49<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">58<span class="t-mark bad">&#10060;</span></div>
                 <div class="t-cap">Target 50 or less</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">Healthy Usage</div>
-                <div class="t-value">95%<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">91%<span class="t-mark ok">&#10003;</span></div>
                 <div class="t-cap">Target 75% or more</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">All Net Sales</div>
-                <div class="t-value">$9,003.75</div>
-                <div class="t-cap vs-down">-$192.21 vs last year</div>
+                <div class="t-value">$9,556.41</div>
+                <div class="t-cap vs-down">-$175.17 vs last year</div>
               </div>
             </div>
           </section>
@@ -3172,7 +3172,7 @@
                   <div class="pg-row" data-start="11" data-end="12"><span class="c-hour">11&ndash;12</span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">43<span class="mark ok">&#10003;</span></span><span class="c-val">36<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
                   <div class="pg-row" data-start="12" data-end="13"><span class="c-hour">12&ndash;1</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
                   <div class="pg-row" data-start="13" data-end="14"><span class="c-hour">1&ndash;2</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
-                  <div class="pg-row total"><span class="c-hour">Total</span><span class="c-val">108<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
+                  <div class="pg-row total"><span class="c-hour">Total</span><span class="c-val">113<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
                 </div>
               </div>
               <div class="peak-card" data-peak="dinner">
@@ -3207,7 +3207,7 @@
         <section class="peak-rmhc" aria-label="RMHC today">
           <div class="peak-rmhc-main">
             <span class="peak-rmhc-label">RMHC Today</span>
-            <span class="peak-rmhc-value rmhc-total">$58.96</span>
+            <span class="peak-rmhc-value rmhc-total">$64.72</span>
           </div>
           <div class="rmhc-warning" role="alert">&#9888; WARNING: RMHC ISN'T GROWING. MAKE SURE YOU'RE ASKING EVERY GUEST TO ROUND UP &#9888;</div>
         </section>
@@ -3450,28 +3450,28 @@
             <div class="totals-grid">
               <div class="total-tile">
                 <div class="t-label">OEPE</div>
-                <div class="t-value">113<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">119<span class="t-mark ok">&#10003;</span></div>
                 <div class="t-cap">Target 150 or less</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">R2P</div>
-                <div class="t-value">43<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">42<span class="t-mark ok">&#10003;</span></div>
                 <div class="t-cap">Target under 100</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">KVS</div>
-                <div class="t-value">49<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">58<span class="t-mark bad">&#10060;</span></div>
                 <div class="t-cap">Target 50 or less</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">Healthy Usage</div>
-                <div class="t-value">95%<span class="t-mark ok">&#10003;</span></div>
+                <div class="t-value">91%<span class="t-mark ok">&#10003;</span></div>
                 <div class="t-cap">Target 75% or more</div>
               </div>
               <div class="total-tile">
                 <div class="t-label">All Net Sales</div>
-                <div class="t-value">$9,003.75</div>
-                <div class="t-cap vs-down">-$192.21 vs last year</div>
+                <div class="t-value">$9,556.41</div>
+                <div class="t-cap vs-down">-$175.17 vs last year</div>
               </div>
             </div>
           </section>
@@ -3485,17 +3485,17 @@
             <div class="seven-row"><span class="c-hour">11 AM&ndash;12 PM</span><span class="c-val">$1,198.58</span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">43<span class="mark ok">&#10003;</span></span><span class="c-val">36<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$41.67</span></div>
             <div class="seven-row"><span class="c-hour">12&ndash;1 PM</span><span class="c-val">$1,291.38</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$51.03</span></div>
             <div class="seven-row"><span class="c-hour">1&ndash;2 PM</span><span class="c-val">$1,159.12</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$58.96</span></div>
-            <div class="seven-row inprogress"><span class="c-hour">2&ndash;3 PM</span><span class="c-val">$308.47</span><span class="c-val">173<span class="mark bad">&#10060;</span></span><span class="c-val">42<span class="mark ok">&#10003;</span></span><span class="c-val">62<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">3&ndash;4 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">2&ndash;3 PM</span><span class="c-val">$861.13</span><span class="c-val">198<span class="mark bad">&#10060;</span></span><span class="c-val">32<span class="mark ok">&#10003;</span></span><span class="c-val">156<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val">$64.72</span></div>
+            <div class="seven-row inprogress"><span class="c-hour">3&ndash;4 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
             <div class="seven-row"><span class="c-hour">4&ndash;5 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
             <div class="seven-row"><span class="c-hour">5&ndash;6 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
             <div class="seven-row"><span class="c-hour">6&ndash;7 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row total"><span class="c-hour">Total</span><span class="c-val">$9,003.75</span><span class="c-val">113<span class="mark ok">&#10003;</span></span><span class="c-val">43<span class="mark ok">&#10003;</span></span><span class="c-val">49<span class="mark ok">&#10003;</span></span><span class="c-val">95%<span class="mark ok">&#10003;</span></span><span class="c-val rmhc-total">$58.96</span></div>
+            <div class="seven-row total"><span class="c-hour">Total</span><span class="c-val">$9,556.41</span><span class="c-val">119<span class="mark ok">&#10003;</span></span><span class="c-val">42<span class="mark ok">&#10003;</span></span><span class="c-val">58<span class="mark bad">&#10060;</span></span><span class="c-val">91%<span class="mark ok">&#10003;</span></span><span class="c-val rmhc-total">$64.72</span></div>
           </div>
           <div class="seven-rmhc" aria-label="RMHC today">
             <div class="seven-rmhc-main">
               <span class="seven-rmhc-label">RMHC Today</span>
-              <span class="seven-rmhc-value rmhc-total">$58.96</span>
+              <span class="seven-rmhc-value rmhc-total">$64.72</span>
             </div>
             <div class="rmhc-warning" role="alert">&#9888; WARNING: RMHC ISN'T GROWING. MAKE SURE YOU'RE ASKING EVERY GUEST TO ROUND UP &#9888;</div>
           </div>
