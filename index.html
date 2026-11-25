@@ -494,7 +494,7 @@
         white-space: nowrap;
       }
       .totals-label { font-size: 17px; font-weight: 600; color: var(--muted); white-space: nowrap; }
-      .totals-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+      .totals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
       .total-tile {
         background: var(--card);
         border-radius: 12px;
@@ -2028,7 +2028,7 @@
         flex: 1 1 0;
         min-height: 0;
         display: grid;
-        grid-template-columns: 0.98fr 1.18fr 0.92fr 0.92fr 0.92fr 1.28fr 1fr;
+        grid-template-columns: 0.98fr 0.92fr 0.92fr 0.92fr 1.28fr 1fr;
         align-items: center;
         gap: 8px;
         padding: 0 22px;
@@ -2247,7 +2247,7 @@
       .stacked .seven-head { flex-wrap: wrap; gap: 4px; padding: 12px 18px; flex-direction: column; align-items: flex-start; }
       .stacked .seven-head h2 { font-size: 38px; white-space: normal; }
       .stacked .seven-head p { font-size: 20px; text-align: left; white-space: normal; }
-      .stacked .seven-row { grid-template-columns: 0.88fr 0.98fr 0.78fr 0.78fr 0.78fr 1.05fr 0.88fr; gap: 4px; padding: 6px 8px; }
+      .stacked .seven-row { grid-template-columns: 0.88fr 0.78fr 0.78fr 0.78fr 1.05fr 0.88fr; gap: 4px; padding: 6px 8px; }
       .stacked .seven-row.col-head { flex-basis: auto; }
       .stacked .seven-row.col-head .c-hour, .stacked .seven-row.col-head .c-val { font-size: 13px; letter-spacing: 0.02em; white-space: normal; text-align: center; }
       .stacked .seven-row.col-head .c-hour { text-align: left; }
@@ -2768,37 +2768,21 @@
         /* Whistle button: fully inside the right edge in Peak Mode. */
         .board.peak-on .whistle-btn { right: 20px; }
 
-        /* ===== PRIVACY DEMOTION: sales + Food Cost dollar figures —
-           Brad: the board hangs where guests can see it, so every
-           privacy-sensitive DOLLAR figure reads VERY SMALL while service
-           numbers, percentages, RMHC figures and all labels keep their
-           sizes. Scoped to the fixed-canvas (TV) layout only; the
-           stacked phone layout is untouched.
-           (1) Peak Mode Running Totals strip: the All Net Sales tile is
-           the last tile in the strip — value 54px -> 20px, its
-           vs-last-year line 24px -> 14px. The other four tiles
-           (OEPE / R2P / KVS / Healthy Usage) keep 54px / 24px.
-           (2) 7-to-7 Day Totals strip: same last tile — value 50px ->
-           20px, vs-last-year line 24px -> 14px.
-           (3) 7-to-7 hourly grid: the All Net Sales column is the first
-           value cell in each row (second child, right after the hour
-           label) — hourly figures 38px -> 17px, TOTAL row figure 46px
-           -> 20px, both well under two-thirds of the service columns
-           beside them. The RMHC column (last cell) keeps its sizes.
-           (4) Food Cost page DOLLARS only: the Wanted cards' loss bands
+        /* ===== SALES DOLLARS REMOVED (Brad, Nov 25): the board hangs
+           where guests can see it and a phone photo + zoom defeats small
+           text, so All Net Sales figures are OFF the board entirely —
+           no sales column in the 6-to-10 hourly grid, no sales tile in
+           the Running Totals / Day Totals strips. Service numbers,
+           percentages and RMHC figures keep their sizes. What remains
+           of the old privacy demotion is Food Cost only:
+           Food Cost page DOLLARS only: the Wanted cards' loss bands
            (.w-amount) 38px -> 18px, and the waste lists' per-item money
            spans (.pl-money) 34px -> 18px (the counts beside them stay
            34px). Food Cost PERCENTAGES stay exactly as they are: the
            Food Over Base goal line and every components-table figure
            are percentages, so they are not touched, and the
            .cat-table .actual-good green-text rule is unchanged. ===== */
-        html:not(.stacked) .board.peak-on .totals-sec .totals-grid > .total-tile:last-child .t-value { font-size: 20px; }
-        html:not(.stacked) .board.peak-on .totals-sec .totals-grid > .total-tile:last-child .t-cap { font-size: 14px; }
-        html:not(.stacked) .seven-totals .totals-grid > .total-tile:last-child .t-value { font-size: 20px; }
-        html:not(.stacked) .seven-totals .totals-grid > .total-tile:last-child .t-cap { font-size: 14px; }
-        html:not(.stacked) .seven-view .seven-row:not(.col-head) > .c-val:nth-child(2) { font-size: 17px; }
-        html:not(.stacked) .seven-view .seven-row.total > .c-val:nth-child(2) { font-size: 20px; }
-        html:not(.stacked) .food-view .w-amount { font-size: 18px; }
+                                                        html:not(.stacked) .food-view .w-amount { font-size: 18px; }
         html:not(.stacked) .food-view .plist-row .pl-money { font-size: 18px; }
 
         /* ===== FOOD COST NUMBERS SHRINK (Brad, Nov 25): every remaining
@@ -3180,11 +3164,6 @@
                 <div class="t-value">74%<span class="t-mark bad">&#10060;</span></div>
                 <div class="t-cap">Target 75% or more</div>
               </div>
-              <div class="total-tile">
-                <div class="t-label">All Net Sales</div>
-                <div class="t-value">$13,512.01</div>
-                <div class="t-cap vs-up">+$409.55 vs last year</div>
-              </div>
             </div>
           </section>
 
@@ -3507,33 +3486,28 @@
                 <div class="t-value">74%<span class="t-mark bad">&#10060;</span></div>
                 <div class="t-cap">Target 75% or more</div>
               </div>
-              <div class="total-tile">
-                <div class="t-label">All Net Sales</div>
-                <div class="t-value">$13,512.01</div>
-                <div class="t-cap vs-up">+$409.55 vs last year</div>
-              </div>
             </div>
           </section>
 
           <div class="seven-card">
-            <div class="seven-row col-head"><span class="c-hour">Hour</span><span class="c-val">All Net Sales</span><span class="c-val">OEPE</span><span class="c-val">R2P</span><span class="c-val">KVS</span><span class="c-val">Healthy Usage %</span><span class="c-val">RMHC</span></div>
-            <div class="seven-row"><span class="c-hour">6&ndash;7 AM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">7&ndash;8 AM</span><span class="c-val">$717.93</span><span class="c-val">85<span class="mark ok">&#10003;</span></span><span class="c-val">30<span class="mark ok">&#10003;</span></span><span class="c-val">27<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">8&ndash;9 AM</span><span class="c-val">$899.68</span><span class="c-val">77<span class="mark ok">&#10003;</span></span><span class="c-val">26<span class="mark ok">&#10003;</span></span><span class="c-val">20<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$14.48</span></div>
-            <div class="seven-row"><span class="c-hour">9&ndash;10 AM</span><span class="c-val">$1,377.84</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">47<span class="mark ok">&#10003;</span></span><span class="c-val">46<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$20.21</span></div>
-            <div class="seven-row"><span class="c-hour">10&ndash;11 AM</span><span class="c-val">$1,124.28</span><span class="c-val">180<span class="mark bad">&#10060;</span></span><span class="c-val">74<span class="mark ok">&#10003;</span></span><span class="c-val">125<span class="mark bad">&#10060;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$31.30</span></div>
-            <div class="seven-row"><span class="c-hour">11 AM&ndash;12 PM</span><span class="c-val">$1,198.58</span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">43<span class="mark ok">&#10003;</span></span><span class="c-val">36<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$41.67</span></div>
-            <div class="seven-row"><span class="c-hour">12&ndash;1 PM</span><span class="c-val">$1,291.38</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$51.03</span></div>
-            <div class="seven-row"><span class="c-hour">1&ndash;2 PM</span><span class="c-val">$1,159.12</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$58.96</span></div>
-            <div class="seven-row"><span class="c-hour">2&ndash;3 PM</span><span class="c-val">$861.13</span><span class="c-val">198<span class="mark bad">&#10060;</span></span><span class="c-val">32<span class="mark ok">&#10003;</span></span><span class="c-val">156<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">3&ndash;4 PM</span><span class="c-val">$957.64</span><span class="c-val">250<span class="mark bad">&#10060;</span></span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">132<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val">$72.47</span></div>
-            <div class="seven-row"><span class="c-hour">4&ndash;5 PM</span><span class="c-val">$1,116.01</span><span class="c-val">168<span class="mark bad">&#10060;</span></span><span class="c-val">73<span class="mark ok">&#10003;</span></span><span class="c-val">69<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val">$78.19</span></div>
-            <div class="seven-row"><span class="c-hour">5&ndash;6 PM</span><span class="c-val">$891.28</span><span class="c-val">109<span class="mark ok">&#10003;</span></span><span class="c-val">12<span class="mark ok">&#10003;</span></span><span class="c-val">44<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$85.43</span></div>
-            <div class="seven-row inprogress"><span class="c-hour">6&ndash;7 PM</span><span class="c-val">$659.53</span><span class="c-val">123<span class="mark ok">&#10003;</span></span><span class="c-val">29<span class="mark ok">&#10003;</span></span><span class="c-val">89<span class="mark bad">&#10060;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">7&ndash;8 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">8&ndash;9 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">9&ndash;10 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row total"><span class="c-hour">Total</span><span class="c-val">$13,512.01</span><span class="c-val">132<span class="mark ok">&#10003;</span></span><span class="c-val">46<span class="mark ok">&#10003;</span></span><span class="c-val">64<span class="mark bad">&#10060;</span></span><span class="c-val">74%<span class="mark bad">&#10060;</span></span><span class="c-val rmhc-total">$85.43</span></div>
+            <div class="seven-row col-head"><span class="c-hour">Hour</span><span class="c-val">OEPE</span><span class="c-val">R2P</span><span class="c-val">KVS</span><span class="c-val">Healthy Usage %</span><span class="c-val">RMHC</span></div>
+            <div class="seven-row"><span class="c-hour">6&ndash;7 AM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">7&ndash;8 AM</span><span class="c-val">85<span class="mark ok">&#10003;</span></span><span class="c-val">30<span class="mark ok">&#10003;</span></span><span class="c-val">27<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">8&ndash;9 AM</span><span class="c-val">77<span class="mark ok">&#10003;</span></span><span class="c-val">26<span class="mark ok">&#10003;</span></span><span class="c-val">20<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$14.48</span></div>
+            <div class="seven-row"><span class="c-hour">9&ndash;10 AM</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">47<span class="mark ok">&#10003;</span></span><span class="c-val">46<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$20.21</span></div>
+            <div class="seven-row"><span class="c-hour">10&ndash;11 AM</span><span class="c-val">180<span class="mark bad">&#10060;</span></span><span class="c-val">74<span class="mark ok">&#10003;</span></span><span class="c-val">125<span class="mark bad">&#10060;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$31.30</span></div>
+            <div class="seven-row"><span class="c-hour">11 AM&ndash;12 PM</span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">43<span class="mark ok">&#10003;</span></span><span class="c-val">36<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$41.67</span></div>
+            <div class="seven-row"><span class="c-hour">12&ndash;1 PM</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$51.03</span></div>
+            <div class="seven-row"><span class="c-hour">1&ndash;2 PM</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$58.96</span></div>
+            <div class="seven-row"><span class="c-hour">2&ndash;3 PM</span><span class="c-val">198<span class="mark bad">&#10060;</span></span><span class="c-val">32<span class="mark ok">&#10003;</span></span><span class="c-val">156<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">3&ndash;4 PM</span><span class="c-val">250<span class="mark bad">&#10060;</span></span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">132<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val">$72.47</span></div>
+            <div class="seven-row"><span class="c-hour">4&ndash;5 PM</span><span class="c-val">168<span class="mark bad">&#10060;</span></span><span class="c-val">73<span class="mark ok">&#10003;</span></span><span class="c-val">69<span class="mark bad">&#10060;</span></span><span class="c-val">0%<span class="mark bad">&#10060;</span></span><span class="c-val">$78.19</span></div>
+            <div class="seven-row"><span class="c-hour">5&ndash;6 PM</span><span class="c-val">109<span class="mark ok">&#10003;</span></span><span class="c-val">12<span class="mark ok">&#10003;</span></span><span class="c-val">44<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val">$85.43</span></div>
+            <div class="seven-row inprogress"><span class="c-hour">6&ndash;7 PM</span><span class="c-val">123<span class="mark ok">&#10003;</span></span><span class="c-val">29<span class="mark ok">&#10003;</span></span><span class="c-val">89<span class="mark bad">&#10060;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">7&ndash;8 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">8&ndash;9 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">9&ndash;10 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row total"><span class="c-hour">Total</span><span class="c-val">132<span class="mark ok">&#10003;</span></span><span class="c-val">46<span class="mark ok">&#10003;</span></span><span class="c-val">64<span class="mark bad">&#10060;</span></span><span class="c-val">74%<span class="mark bad">&#10060;</span></span><span class="c-val rmhc-total">$85.43</span></div>
           </div>
           <div class="seven-rmhc" aria-label="RMHC today">
             <div class="seven-rmhc-main">
