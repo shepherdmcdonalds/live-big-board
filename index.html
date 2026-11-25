@@ -2890,6 +2890,12 @@
           border-radius: 50%; background: #1e7d32; color: #ffffff;
           font-size: 14px; font-weight: 800; line-height: 1;
         }
+        /* RMHC Today line + Food Over Base line in red #E8222D (Box 3 only).
+           Resting color for the RMHC line: while the growth warning is on,
+           the rmhcWarnFlash background animation above still takes over. */
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-lab,
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-fig { color: #E8222D; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body > .ib-line:last-child { color: #E8222D; }
 </style>
   </head>
   <body>
