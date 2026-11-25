@@ -991,6 +991,16 @@
       .board.peak-on .pg-row .c-val:nth-of-type(4)::before { content: "KVS"; }
       .board.peak-on .pg-row .c-val:nth-of-type(5)::before { content: "SIDE 2"; }
       .board.peak-on .pg-row .c-val .mark { font-size: 0.62em; margin-left: 0; }
+      /* Peak Mode HOURLY values only (Brad, Nov 25): no check/cross marks
+         beside the hourly numbers — the NUMBER itself carries the result.
+         Hourly markup pattern: <span class="c-val val-good">110</span> when
+         the value makes its target, <span class="c-val val-bad">180</span>
+         when it misses (OEPE 130 or under makes; R2P under 100 makes; KVS
+         50 or under makes; Healthy Usage 75% or more makes). Dash/no-data
+         cells keep class "c-val dash" and stay neutral. TOTAL rows are
+         excluded here and keep their marks and navy numbers, unchanged. */
+      .board.peak-on .pg-row:not(.total) .c-val.val-good { color: #1e7d32; }
+      .board.peak-on .pg-row:not(.total) .c-val.val-bad { color: #c62828; }
       /* TOTAL panel: strong gold/amber so it pops as "the score that counts"
          against the pale hour panels. Numbers stay navy, check marks stay green. */
       .board.peak-on .pg-row.total {
@@ -2784,6 +2794,24 @@
         html:not(.stacked) .food-view .w-amount { font-size: 18px; }
         html:not(.stacked) .food-view .plist-row .pl-money { font-size: 18px; }
 
+        /* ===== FOOD COST NUMBERS SHRINK (Brad, Nov 25): every remaining
+           numeric figure on the Food Cost page comes down into the same
+           small range as the demoted dollars above, so guests cannot read
+           the numbers from the lobby. Labels, headings, category names and
+           all words keep their current sizes — only numbers shrink. The
+           already-demoted dollars (.w-amount and .pl-money, 18px above)
+           stay 18px, and the .cat-table .actual-good rule (green text,
+           font-weight 800, no pill/background) is NOT touched. ===== */
+        /* Food Over Base headline percentages (Goal / Actual): 34px -> 20px */
+        .food-view .goal-nums { font-size: 20px; }
+        /* Components table Target / Actual percentage figures: 28px -> 20px */
+        .food-view .cat-table td.ct-num { font-size: 20px; }
+        /* Wanted cards' unit counts ("405 units short" etc.): 27px -> 20px */
+        .food-view .w-units { font-size: 20px; }
+        /* Waste lists' count figures beside the money: 34px -> 20px
+           (the .pl-money spans inside keep their demoted 18px) */
+        .food-view .plist-row .pl-detail { font-size: 20px; }
+
         /* ---------- HOME ALONE MEAL view (crew guide, static) ---------- */
         .homealone-view { display: none; }
         .board.homealone-on .homealone-view {
@@ -3163,8 +3191,8 @@
                 </div>
                 <div class="peak-grid">
                   <div class="pg-row col-head"><span>Hour</span><span style="text-align:center">OEPE</span><span style="text-align:center">R2P</span><span style="text-align:center">KVS</span><span style="text-align:center">Side 2</span></div>
-                  <div class="pg-row" data-start="7" data-end="8"><span class="c-hour">7&ndash;8</span><span class="c-val">85<span class="mark ok">&#10003;</span></span><span class="c-val">30<span class="mark ok">&#10003;</span></span><span class="c-val">27<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
-                  <div class="pg-row" data-start="8" data-end="9"><span class="c-hour">8&ndash;9</span><span class="c-val">77<span class="mark ok">&#10003;</span></span><span class="c-val">26<span class="mark ok">&#10003;</span></span><span class="c-val">20<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
+                  <div class="pg-row" data-start="7" data-end="8"><span class="c-hour">7&ndash;8</span><span class="c-val val-good">85</span><span class="c-val val-good">30</span><span class="c-val val-good">27</span><span class="c-val val-good">100%</span></div>
+                  <div class="pg-row" data-start="8" data-end="9"><span class="c-hour">8&ndash;9</span><span class="c-val val-good">77</span><span class="c-val val-good">26</span><span class="c-val val-good">20</span><span class="c-val val-good">100%</span></div>
                   <div class="pg-row total"><span class="c-hour">Total</span><span class="c-val">81<span class="mark ok">&#10003;</span></span><span class="c-val">28<span class="mark ok">&#10003;</span></span><span class="c-val">23<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
                 </div>
               </div>
@@ -3176,9 +3204,9 @@
                 </div>
                 <div class="peak-grid">
                   <div class="pg-row col-head"><span>Hour</span><span style="text-align:center">OEPE</span><span style="text-align:center">R2P</span><span style="text-align:center">KVS</span><span style="text-align:center">Side 2</span></div>
-                  <div class="pg-row" data-start="11" data-end="12"><span class="c-hour">11&ndash;12</span><span class="c-val">96<span class="mark ok">&#10003;</span></span><span class="c-val">43<span class="mark ok">&#10003;</span></span><span class="c-val">36<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
-                  <div class="pg-row" data-start="12" data-end="13"><span class="c-hour">12&ndash;1</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">37<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
-                  <div class="pg-row" data-start="13" data-end="14"><span class="c-hour">1&ndash;2</span><span class="c-val">110<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
+                  <div class="pg-row" data-start="11" data-end="12"><span class="c-hour">11&ndash;12</span><span class="c-val val-good">96</span><span class="c-val val-good">43</span><span class="c-val val-good">36</span><span class="c-val val-good">100%</span></div>
+                  <div class="pg-row" data-start="12" data-end="13"><span class="c-hour">12&ndash;1</span><span class="c-val val-good">110</span><span class="c-val val-good">37</span><span class="c-val val-good">37</span><span class="c-val val-good">100%</span></div>
+                  <div class="pg-row" data-start="13" data-end="14"><span class="c-hour">1&ndash;2</span><span class="c-val val-good">110</span><span class="c-val val-good">39</span><span class="c-val val-good">39</span><span class="c-val val-good">100%</span></div>
                   <div class="pg-row total"><span class="c-hour">Total</span><span class="c-val">113<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">39<span class="mark ok">&#10003;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span></div>
                 </div>
               </div>
