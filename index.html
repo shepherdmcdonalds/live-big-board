@@ -2748,6 +2748,70 @@
         html:not(.stacked) .seven-totals .totals-grid > .total-tile:last-child .t-cap { font-size: 24px; }
         html:not(.stacked) .seven-view .seven-row:not(.col-head) > .c-val:nth-child(2) { font-size: 26px; }
         html:not(.stacked) .seven-view .seven-row.total > .c-val:nth-child(2) { font-size: 30px; }
+
+        /* ---------- HOME ALONE MEAL view (crew guide, static) ---------- */
+        .homealone-view { display: none; }
+        .board.homealone-on .homealone-view {
+          display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0;
+          margin: 4px 110px 0; gap: 4px;
+        }
+        .board.homealone-on main, .board.homealone-on .wins, .board.homealone-on footer { display: none; }
+        .board.homealone-on header { padding: 1px 40px; }
+        .board.homealone-on .brand h1 { font-size: 34px; }
+        .board.homealone-on .clock-time { font-size: 34px; }
+        .board.homealone-on .clock-date { font-size: 24px; margin-top: 1px; }
+        .board.homealone-on .clock { display: flex; align-items: baseline; gap: 16px; }
+        .board.homealone-on .clock-date { margin-top: 0; }
+        .board.homealone-on > .totals-sec { display: none; }
+        html:not(.stacked) .board.homealone-on .homealone-view { margin-left: 148px; margin-right: 148px; }
+        html:not(.stacked) .board.homealone-on header { margin: 0 148px; }
+        html:not(.stacked) .board.homealone-on .lights { margin: 0 148px; }
+        .board.homealone-on .lights { display: none; }
+        .board.homealone-on { padding-bottom: 24px; }
+        .ha-head {
+          flex: 0 0 auto; background: #12263F; color: #fff; border-bottom: 4px solid #0077E6;
+          border-radius: 12px; box-shadow: var(--shadow); padding: 4px 28px 5px;
+          display: flex; align-items: center; justify-content: space-between; gap: 24px; overflow: hidden;
+        }
+        .ha-head-text { min-width: 0; display: flex; align-items: baseline; gap: 22px; }
+        .ha-head h2 { margin: 0; font-family: "Barlow Condensed","Barlow",sans-serif; font-weight: 700; font-size: 44px; letter-spacing: 0.05em; line-height: 0.95; text-transform: uppercase; white-space: nowrap; }
+        .ha-head p { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 0.08em; color: #9FB3C8; text-transform: uppercase; white-space: nowrap; }
+        .ha-hero { flex: 0 0 260px; height: 54px; border-radius: 8px; overflow: hidden; border: 2px solid var(--gold); }
+        .ha-hero img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; }
+        .ha-card { background: #fff; border: 1px solid #DEE5EC; border-radius: 10px; box-shadow: 0 2px 10px rgba(18,38,63,0.10); overflow: hidden; display: flex; flex-direction: column; flex: 0 0 auto; }
+        .ha-card-head { background: #12263F; color: #fff; border-bottom: 3px solid #0077E6; font-family: "Barlow Condensed","Barlow",sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.07em; text-transform: uppercase; line-height: 1; padding: 1px 16px 2px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+        .ha-head-note { font-family: "Barlow",sans-serif; font-size: 24px; font-weight: 600; letter-spacing: 0.02em; text-transform: none; color: #9FB3C8; white-space: nowrap; }
+        .ha-two { display: grid; grid-template-columns: 1fr 1fr; }
+        .ha-col { padding: 2px 18px 3px; min-width: 0; }
+        .ha-col + .ha-col { border-left: 2px solid #DEE5EC; }
+        .ha-col-title { font-size: 24px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #12263F; line-height: 1; margin-bottom: 1px; }
+        .ha-text { margin: 0; font-size: 24px; line-height: 1.02; color: #17202B; }
+        .ha-text + .ha-text { margin-top: 2px; }
+        .ha-text strong { color: #12263F; }
+        .ha-alert { margin: 2px 0 0; font-size: 24px; line-height: 1.02; font-weight: 700; color: #8a1f23; }
+        .ha-steps { margin: 0; padding-left: 28px; }
+        .ha-steps li { font-size: 24px; line-height: 1.02; color: #17202B; padding-left: 2px; }
+        .ha-footnote { margin: 0; padding: 3px 18px 4px; background: #F6F8FA; border-top: 2px solid #DEE5EC; font-size: 24px; line-height: 1.02; font-weight: 700; color: #12263F; text-align: center; }
+        .ha-mid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 5px; flex: 0 0 auto; }
+        .ha-mid .ha-col { padding: 2px 18px 3px; }
+        .ha-headsup { flex: 0 0 auto; background: #c62828; color: #fff; border: 3px solid #7f1d1d; border-radius: 10px; font-size: 24px; font-weight: 800; line-height: 1.1; text-align: center; padding: 3px 18px 4px; letter-spacing: 0.01em; }
+        .ha-flurry { margin: 0; padding: 2px 18px 3px; font-size: 24px; line-height: 1.02; color: #17202B; }
+        .ha-flurry strong { color: #12263F; }
+        .ha-dates { flex: 0 0 auto; background: #12263F; color: #fff; border-bottom: 3px solid #0077E6; border-radius: 10px; padding: 4px 12px 5px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; font-family: "Barlow Condensed","Barlow",sans-serif; font-size: 25px; font-weight: 600; line-height: 1.05; text-align: center; }
+        .ha-dates strong { color: #ffe9a8; white-space: normal; }
+        .ha-dates span { white-space: normal; }
+        .ha-dates .ha-dot { color: #0077E6; font-weight: 800; }
+        .stacked .homealone-view { margin: 10px 14px 0; }
+        .stacked .board.homealone-on .homealone-view { margin: 10px 14px 0; }
+        .stacked .ha-head { flex-wrap: wrap; }
+        .stacked .ha-head h2 { font-size: 40px; white-space: normal; }
+        .stacked .ha-head p { white-space: normal; }
+        .stacked .ha-hero { flex: 1 1 100%; height: 160px; }
+        .stacked .ha-two, .stacked .ha-mid { grid-template-columns: 1fr; }
+        .stacked .ha-col + .ha-col { border-left: none; border-top: 2px solid #DEE5EC; }
+        .stacked .ha-dates { flex-wrap: wrap; white-space: normal; }
+        .stacked .ha-dates span { white-space: normal; }
+        .stacked .ha-head-note { white-space: normal; }
 </style>
   </head>
   <body>
@@ -2800,6 +2864,7 @@
             <span class="mt-label">View</span>
             <button type="button" id="btnOffPeakP">Off-Peak View</button>
             <button type="button" id="btnPromoP">Promotions</button>
+            <button type="button" id="btnHomeAloneP">Home Alone Meal</button>
             <button type="button" id="btnFoodP">Food Cost</button>
             <button type="button" id="btnSevenP">7 to 7</button>
             <button type="button" id="btnPeakP">Peak Mode</button>
@@ -2822,6 +2887,7 @@
                 <span class="mt-label">View</span>
                 <button type="button" id="btnOffPeak">Off-Peak View</button>
                 <button type="button" id="btnPromo">Promotions</button>
+                <button type="button" id="btnHomeAlone">Home Alone Meal</button>
                 <button type="button" id="btnFood">Food Cost</button>
                 <button type="button" id="btnSeven">7 to 7</button>
                 <button type="button" id="btnPeak">Peak Mode</button>
@@ -3025,6 +3091,87 @@
           </div>
         </section>
 
+        <section class="homealone-view" aria-label="Home Alone Meal crew guide">
+          <div class="ha-head">
+            <div class="ha-head-text">
+              <h2>Home Alone Meal</h2>
+              <p>Crew Guide &middot; Launches Tue Dec 1</p>
+            </div>
+          </div>
+
+          <div class="ha-card">
+            <div class="ha-card-head"><span>What's in the Box</span></div>
+            <div class="ha-two">
+              <div class="ha-col">
+                <div class="ha-col-title">Breakfast</div>
+                <p class="ha-text">Any EVM breakfast entr&eacute;e (guest's choice) &middot; Hash Brown &middot; Small coffee &middot; 1 collectible in a blind box.</p>
+                <p class="ha-alert">Breakfast platters are NOT included (Hotcakes, Big Breakfast, Gravy Biscuit).</p>
+              </div>
+              <div class="ha-col">
+                <div class="ha-col-title">Rest of Day</div>
+                <p class="ha-text">Any EVM entr&eacute;e &middot; Medium McShaker Fries &middot; Medium drink &middot; 1 collectible in a blind box &middot; LTO sauce cup available.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ha-card">
+            <div class="ha-card-head"><span>How to Build the Box</span><span class="ha-head-note">Build in this order, every time</span></div>
+            <div class="ha-two">
+              <div class="ha-col">
+                <div class="ha-col-title">Breakfast Box</div>
+                <ol class="ha-steps">
+                  <li>Collectible on the bottom right, placed vertically.</li>
+                  <li>3 napkins (and any requested sauce).</li>
+                  <li>Entr&eacute;e in the top left.</li>
+                  <li>Hash Brown on the bottom left.</li>
+                  <li>Presenter verifies the box before closing it.</li>
+                </ol>
+              </div>
+              <div class="ha-col">
+                <div class="ha-col-title">Rest-of-Day Box</div>
+                <ol class="ha-steps">
+                  <li>Collectible on the bottom right, placed vertically.</li>
+                  <li>McShaker bag + seasoning packet next to the collectible.</li>
+                  <li>3 napkins (and any requested sauce).</li>
+                  <li>Entr&eacute;e in the top left.</li>
+                  <li>Fries on the bottom left.</li>
+                  <li>Presenter verifies the box before closing it.</li>
+                </ol>
+              </div>
+            </div>
+            <p class="ha-footnote">The box stays open &mdash; the presenter verifies accuracy and closes the box before handing it to the guest. Every element goes inside the box.</p>
+          </div>
+
+          <div class="ha-mid">
+            <div class="ha-card">
+              <div class="ha-card-head"><span>McShaker Fries</span></div>
+              <div class="ha-col">
+                <p class="ha-text">Pre-stage McShaker bags with <strong>1 seasoning packet inside each bag</strong> (bags and seasoning are for rest-of-day Holiday Meals only).</p>
+                <p class="ha-text">Use <strong>2 fry scoops</strong> for McShaker Fries.</p>
+                <p class="ha-text"><strong>McShaker Fries CANNOT be added to a standard meal</strong> &mdash; they come with the Home Alone Meal or &agrave; la carte.</p>
+              </div>
+            </div>
+            <div class="ha-card">
+              <div class="ha-card-head"><span>Key Rules</span></div>
+              <div class="ha-col">
+                <p class="ha-text">Ask every guest: <strong>&ldquo;Will that be a Holiday Meal?&rdquo;</strong> and ring meals as Holiday Meals.</p>
+                <p class="ha-text">Guests can choose <strong>ANY EVM entr&eacute;e</strong>.</p>
+                <p class="ha-text">The LTO McNugget Sauce Cup is <strong>NOT automatic</strong> &mdash; it is a sauce option with McNuggets or McCrispy Strips, or &agrave; la carte.</p>
+                <p class="ha-text">Collectibles come in blind boxes: <strong>4 designs, packed randomly</strong> &mdash; crew will not know which design is inside, and a specific design cannot be requested.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ha-headsup" role="alert">&#9888; HEADS UP: McShaker Fries will NOT show on the fry station eProduction monitor. Watch for them on pick tickets.</div>
+
+          <div class="ha-card">
+            <div class="ha-card-head"><span>The LTO McFlurry</span><span class="ha-head-note">Hot fudge, Oreo and M&amp;M's &mdash; Mini and Regular</span></div>
+            <p class="ha-flurry">Fill soft serve to an inch above the fill line. Tap twice. <strong>Hot fudge:</strong> 1 pump (both sizes). <strong>Oreo:</strong> Regular 3 slides, Mini 2 slides. <strong>M&amp;M's:</strong> 1 slide (both sizes). <strong>Blend:</strong> Regular 5&ndash;8 seconds, Mini 3+ seconds. Close the flaps and serve with a wrapped spoon.</p>
+          </div>
+
+          <div class="ha-dates" style="background:#12263F;color:#ffffff;"><span><strong>MON NOV 30</strong> &mdash; End of day: stock promotional products and packaging on the floor</span><span class="ha-dot" aria-hidden="true">&middot;</span><span><strong>TUE DEC 1</strong> &mdash; All stores selling, launch day</span><span class="ha-dot" aria-hidden="true">&middot;</span><span><strong>MON DEC 28</strong> &mdash; Phase out begins</span></div>
+        </section>
+
         <section class="food-view" aria-label="Food Cost">
           <div class="food-head">
             <h2>Food Cost</h2>
@@ -3205,11 +3352,13 @@
         var btnOff = document.getElementById("btnOffPeak");
         var btnPeak = document.getElementById("btnPeak");
         var btnPromo = document.getElementById("btnPromo");
+        var btnHomeAlone = document.getElementById("btnHomeAlone");
         var btnFood = document.getElementById("btnFood");
         var btnSeven = document.getElementById("btnSeven");
         var btnOffP = document.getElementById("btnOffPeakP");
         var btnPeakP = document.getElementById("btnPeakP");
         var btnPromoP = document.getElementById("btnPromoP");
+        var btnHomeAloneP = document.getElementById("btnHomeAloneP");
         var btnFoodP = document.getElementById("btnFoodP");
         var btnSevenP = document.getElementById("btnSevenP");
         var navPrev = document.getElementById("navPrev");
@@ -3265,9 +3414,9 @@
           rotInd.textContent = paused ? "Auto-rotate: Paused" : "Auto-rotate: On";
           rotInd.classList.toggle("paused", paused);
         }
-        var VIEW_ORDER = ["off", "promo", "food", "seven", "peak"];
-        var VIEW_NAMES = { off: "Off-Peak", promo: "Promotions", food: "Food Cost", seven: "7 to 7", peak: "Peak" };
-        var ROT_ORDER = ["off", "promo", "food", "seven"];
+        var VIEW_ORDER = ["off", "promo", "homealone", "food", "seven", "peak"];
+        var VIEW_NAMES = { off: "Off-Peak", promo: "Promotions", homealone: "Home Alone Meal", food: "Food Cost", seven: "7 to 7", peak: "Peak" };
+        var ROT_ORDER = ["off", "promo", "homealone", "food", "seven"];
 
         function autoMode(d) {
           var mins = d.getHours() * 60 + d.getMinutes();
@@ -3295,6 +3444,8 @@
           root.classList.toggle("peak-on", mode === "peak");
           board.classList.toggle("promo-on", mode === "promo");
           root.classList.toggle("promo-on", mode === "promo");
+          board.classList.toggle("homealone-on", mode === "homealone");
+          root.classList.toggle("homealone-on", mode === "homealone");
           board.classList.toggle("food-on", mode === "food");
           root.classList.toggle("food-on", mode === "food");
           board.classList.toggle("seven-on", mode === "seven");
@@ -3302,21 +3453,25 @@
           btnOff.classList.toggle("active", mode === "off");
           btnPeak.classList.toggle("active", mode === "peak");
           btnPromo.classList.toggle("active", mode === "promo");
+          if (btnHomeAlone) btnHomeAlone.classList.toggle("active", mode === "homealone");
           if (btnFood) btnFood.classList.toggle("active", mode === "food");
           if (btnSeven) btnSeven.classList.toggle("active", mode === "seven");
           btnOff.setAttribute("aria-pressed", mode === "off" ? "true" : "false");
           btnPeak.setAttribute("aria-pressed", mode === "peak" ? "true" : "false");
           btnPromo.setAttribute("aria-pressed", mode === "promo" ? "true" : "false");
+          if (btnHomeAlone) btnHomeAlone.setAttribute("aria-pressed", mode === "homealone" ? "true" : "false");
           if (btnFood) btnFood.setAttribute("aria-pressed", mode === "food" ? "true" : "false");
           if (btnSeven) btnSeven.setAttribute("aria-pressed", mode === "seven" ? "true" : "false");
           btnOffP.classList.toggle("active", mode === "off");
           btnPeakP.classList.toggle("active", mode === "peak");
           btnPromoP.classList.toggle("active", mode === "promo");
+          if (btnHomeAloneP) btnHomeAloneP.classList.toggle("active", mode === "homealone");
           if (btnFoodP) btnFoodP.classList.toggle("active", mode === "food");
           if (btnSevenP) btnSevenP.classList.toggle("active", mode === "seven");
           btnOffP.setAttribute("aria-pressed", mode === "off" ? "true" : "false");
           btnPeakP.setAttribute("aria-pressed", mode === "peak" ? "true" : "false");
           btnPromoP.setAttribute("aria-pressed", mode === "promo" ? "true" : "false");
+          if (btnHomeAloneP) btnHomeAloneP.setAttribute("aria-pressed", mode === "homealone" ? "true" : "false");
           if (btnFoodP) btnFoodP.setAttribute("aria-pressed", mode === "food" ? "true" : "false");
           if (btnSevenP) btnSevenP.setAttribute("aria-pressed", mode === "seven" ? "true" : "false");
           var vi = VIEW_ORDER.indexOf(mode);
@@ -3342,11 +3497,13 @@
         btnOff.addEventListener("click", function () { setOverride("off"); });
         btnPeak.addEventListener("click", function () { setOverride("peak"); });
         btnPromo.addEventListener("click", function () { setOverride("promo"); });
+        if (btnHomeAlone) btnHomeAlone.addEventListener("click", function () { setOverride("homealone"); });
         if (btnFood) btnFood.addEventListener("click", function () { setOverride("food"); });
         if (btnSeven) btnSeven.addEventListener("click", function () { setOverride("seven"); });
         btnOffP.addEventListener("click", function () { setOverride("off"); });
         btnPeakP.addEventListener("click", function () { setOverride("peak"); });
         btnPromoP.addEventListener("click", function () { setOverride("promo"); });
+        if (btnHomeAloneP) btnHomeAloneP.addEventListener("click", function () { setOverride("homealone"); });
         if (btnFoodP) btnFoodP.addEventListener("click", function () { setOverride("food"); });
         if (btnSevenP) btnSevenP.addEventListener("click", function () { setOverride("seven"); });
 
