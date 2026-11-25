@@ -2499,9 +2499,13 @@
         .boxes-row .ib-fig { font-size: 52px; }
         .boxes-row .ib-mtd { font-size: 38px; }
         .boxes-row .ib-of { font-size: 28px; }
-        .boxes-row .ib-peaks { width: 100%; border-collapse: collapse; font-size: 25px; line-height: 1.2; color: #24344a; }
-        .boxes-row .ib-peaks th, .boxes-row .ib-peaks td { padding: 3px 4px; text-align: center; white-space: nowrap; }
-        .boxes-row .ib-peaks thead th { font-size: 24px; font-weight: 700; color: #6b7686; border-bottom: 2px solid #DEE5EC; }
+        .boxes-row .ib-peaks { width: 100%; border-collapse: collapse; font-size: 25px; line-height: 1.15; color: #24344a; font-variant-numeric: tabular-nums; }
+        .boxes-row .ib-peaks th, .boxes-row .ib-peaks td { padding: 7px 16px; text-align: center; white-space: nowrap; }
+        .boxes-row .ib-peaks thead th { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; background: #12263F; border-bottom: 3px solid #0077E6; padding-top: 6px; padding-bottom: 6px; }
+        .boxes-row .ib-peaks thead th:first-child { text-align: left; }
+        .boxes-row .ib-peaks tbody th, .boxes-row .ib-peaks tbody td { border-bottom: 1px solid #DEE5EC; }
+        .boxes-row .ib-peaks tbody th + td, .boxes-row .ib-peaks tbody td + td { border-left: 1px solid #DEE5EC; }
+        .boxes-row .ib-peaks tbody tr:nth-child(even) { background: #eef3fa; }
         .boxes-row .ib-peaks tbody th { text-align: left; font-weight: 700; color: #2B3A4D; }
         .boxes-row .ib-peaks tbody td { font-weight: 700; color: #1c2b3a; }
         .seven-totals { flex: 0 0 auto; }
@@ -2840,6 +2844,52 @@
         .stacked .ha-dates { flex-wrap: wrap; white-space: normal; }
         .stacked .ha-dates span { white-space: normal; }
         .stacked .ha-head-note { white-space: normal; }
+
+        /* ===== MTD PEAKS LEGIBILITY + FIT (Box 3, Home) — each MTD number
+           sits in its own clearly divided cell with its pass mark in a
+           green badge set apart from the figure, so the three peaks read
+           apart at a glance instead of mashing together. Box 3's vertical
+           padding is tightened at the same time so ALL of its content —
+           the RMHC lines, the $1,949 of $2,500 goal bar, all three MTD
+           Peaks rows, and the Food Over Base line — fits fully inside
+           its grid cell; the box itself does not grow. Scoped to Box 3
+           only (class + position, so it survives content refills). ===== */
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body { padding: 6px 22px 8px; justify-content: space-between; gap: 2px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-big { padding-bottom: 4px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-fig { font-size: 48px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-line { font-size: 25px; line-height: 1.15; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-sub { font-size: 24px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-mtd { font-size: 34px; line-height: 1.05; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-of { font-size: 25px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .progress { height: 12px; margin: 2px 0; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks { font-size: 26px; line-height: 1.1; border: 2px solid #12263F; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks th,
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks td { padding: 4px 10px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks thead th { padding-top: 4px; padding-bottom: 4px; border-left: 2px solid rgba(255, 255, 255, 0.22); }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks thead th:first-child { border-left: none; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody th,
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody td { border-bottom: 2px solid #C9D6E4; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody tr:last-child th,
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody tr:last-child td { border-bottom: none; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody th + td,
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody td + td { border-left: 2px solid #C9D6E4; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody th { font-size: 25px; font-weight: 800; letter-spacing: 0.02em; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody td { font-size: 27px; font-weight: 800; color: #12263F; }
+        /* Pass mark as its own badge, offset from the number it grades. */
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody td .ok {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 24px; height: 24px; margin-left: 9px; vertical-align: middle;
+          border-radius: 50%; background: #1e7d32; color: #ffffff;
+          font-size: 15px; font-weight: 800; line-height: 1;
+        }
+        /* Food Over Base line: its own separated footer row inside the box. */
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body > .ib-line:last-child { border-top: 2px solid #DEE5EC; padding-top: 5px; }
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body > .ib-line:last-child .ok {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 22px; height: 22px; margin-left: 6px; vertical-align: middle;
+          border-radius: 50%; background: #1e7d32; color: #ffffff;
+          font-size: 14px; font-weight: 800; line-height: 1;
+        }
 </style>
   </head>
   <body>
@@ -2967,7 +3017,7 @@
                 <p class="ib-news"><strong>RMHC $84.92 yesterday,</strong> below the $91.83 pace. Ask every guest to Round Up.</p>
               </div>
             </div>
-            <div class="info-box">
+            <div class="info-box ib-box-mtd">
               <div class="ib-head">RMHC + MTD Operations</div>
               <div class="ib-body">
                 <div class="ib-big"><span class="ib-lab">RMHC Today</span><span class="ib-fig rmhc-total">$20.21</span></div>
@@ -2978,7 +3028,7 @@
                 </div>
                 <table class="ib-peaks" aria-label="MTD peak averages through Nov 24">
                   <thead>
-                    <tr><th scope="col">MTD Peaks</th><th scope="col">OEPE</th><th scope="col">R2P</th><th scope="col">KVS</th><th scope="col">Side 2</th></tr>
+                    <tr><th scope="col">Peak</th><th scope="col">OEPE</th><th scope="col">R2P</th><th scope="col">KVS</th><th scope="col">Side 2</th></tr>
                   </thead>
                   <tbody>
                     <tr><th scope="row">Breakfast</th><td>107 <span class="ok">&#10003;</span></td><td>63 <span class="ok">&#10003;</span></td><td>35 <span class="ok">&#10003;</span></td><td>88% <span class="ok">&#10003;</span></td></tr>
