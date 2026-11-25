@@ -772,13 +772,13 @@
         color: #12263F;
         font-family: "Barlow Condensed", "Barlow", sans-serif;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 18px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
         line-height: 1.12;
         display: flex;
         align-items: center;
-        padding: 6px 16px;
+        padding: 3px 14px;
       }
       .floor-block {
         position: relative;
@@ -787,7 +787,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 4px 12px;
+        padding: 2px 10px;
       }
       .floor-block + .floor-block { border-left: none; }
       /* Elegant vertical divider between each floor manager block: a thin
@@ -809,13 +809,14 @@
       .floor-block .fb-name {
         font-family: "Barlow Condensed", "Barlow", sans-serif;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.05;
         color: #12263F;
         letter-spacing: 0.02em;
       }
       .floor-block .fb-time {
-        font-size: 19px;
+        font-size: 18px;
+        line-height: 1;
         font-weight: 700;
         color: #12263F;
         font-variant-numeric: tabular-nums;
@@ -1363,10 +1364,10 @@
       .board:not(.peak-on):not(.promo-on) .pg-row.total .c-val { font-size: 40px; line-height: 1; }
             .board:not(.peak-on):not(.promo-on) .home-lower { gap: 3px; flex: 0 0 auto; }
       .board:not(.peak-on):not(.promo-on) .floor-band { grid-template-columns: 300px repeat(4, 1fr); border-radius: 10px; }
-      .board:not(.peak-on):not(.promo-on) .floor-band .fb-title { font-size: 20px; padding: 2px 12px; border-right-width: 3px; }
-      .board:not(.peak-on):not(.promo-on) .floor-block { padding: 1px 10px; }
-      .board:not(.peak-on):not(.promo-on) .floor-block .fb-name { font-size: 20px; line-height: 1; }
-      .board:not(.peak-on):not(.promo-on) .floor-block .fb-time { font-size: 19px; line-height: 1.05; }
+      .board:not(.peak-on):not(.promo-on) .floor-band .fb-title { font-size: 18px; padding: 1px 10px; border-right-width: 3px; }
+      .board:not(.peak-on):not(.promo-on) .floor-block { padding: 0 10px; }
+      .board:not(.peak-on):not(.promo-on) .floor-block .fb-name { font-size: 18px; line-height: 1; }
+      .board:not(.peak-on):not(.promo-on) .floor-block .fb-time { font-size: 18px; line-height: 1; }
       .board:not(.peak-on):not(.promo-on) .lower-row { gap: 12px; flex: 0 0 176px; min-height: 0; grid-template-columns: 1fr; }
       .board:not(.peak-on):not(.promo-on) .photo-accent { border-radius: 10px; }
       .board:not(.peak-on):not(.promo-on) .panel { padding: 2px 20px; border-radius: 10px; overflow: hidden; }
@@ -2878,6 +2879,12 @@
            only (class + position, so it survives content refills). ===== */
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body { padding: 6px 22px 8px; justify-content: space-between; gap: 2px; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-big { padding-bottom: 4px; }
+        /* RMHC Today line demoted for lobby privacy: the label comes down
+           from 28px to match the figure, so the whole red line runs at
+           20px like the other privacy-demoted dollar figures. The MTD
+           figure (.ib-mtd / .ib-of) already runs at 20px just below and
+           stays there. Peak Mode and 7-to-7 RMHC figures are untouched. */
+        .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-lab { font-size: 20px; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-fig { font-size: 20px; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-line { font-size: 25px; line-height: 1.15; }
         .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-sub { font-size: 24px; }
