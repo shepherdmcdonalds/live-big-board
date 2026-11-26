@@ -1083,6 +1083,31 @@
         margin-top: 3px;
         text-align: center;
       }
+      /* Real-text twin of the ::after pill above, same pattern as the
+         6-to-10 grid: when a row carries an .ip-pill element inside its
+         hour cell, the pill is actual page text (readable by assistive
+         tech and text extraction) and the generated pill is suppressed
+         so it never renders twice. */
+      .pg-row .c-hour .ip-pill {
+        display: block;
+        font-family: "Barlow", sans-serif;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        color: var(--amber-ink);
+        background: var(--amber);
+        border-radius: 999px;
+        padding: 2px 8px;
+        margin-top: 3px;
+        text-align: center;
+      }
+      .board.peak-on .pg-row .c-hour .ip-pill {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 0 12px;
+      }
+      .pg-row.inprogress .c-hour:has(> .ip-pill)::after,
+      .board.peak-on .pg-row.inprogress .c-hour:has(> .ip-pill)::after { display: none; }
 
       @media (prefers-reduced-motion: reduce) {
         .board.peak-on .alarm,
@@ -3312,7 +3337,7 @@
                 <div class="peak-grid">
                   <div class="pg-row col-head"><span>Hour</span><span style="text-align:center">OEPE</span><span style="text-align:center">R2P</span><span style="text-align:center">KVS</span><span style="text-align:center">Side 2</span></div>
                   <div class="pg-row" data-start="11" data-end="12"><span class="c-hour">11&ndash;12</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-                  <div class="pg-row inprogress" data-start="12" data-end="13"><span class="c-hour">12&ndash;1</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+                  <div class="pg-row inprogress" data-start="12" data-end="13"><span class="c-hour">12&ndash;1<span class="ip-pill">IN PROGRESS</span></span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
                   <div class="pg-row" data-start="13" data-end="14"><span class="c-hour">1&ndash;2 &middot; Up next</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
                   <div class="pg-row total"><span class="c-hour">Total</span><span class="c-val"></span><span class="c-val"></span><span class="c-val"></span><span class="c-val"></span></div>
                 </div>
