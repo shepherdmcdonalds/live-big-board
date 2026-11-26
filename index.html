@@ -3115,6 +3115,291 @@
     .stacked .boxes-col .info-box{flex:none}
     @media print{ main .boxes-row{display:flex} }
   </style>
+  <style>
+    /* ===== WINTER NIGHT SNOWFALL theme (Concept 2, approved by Brad) +
+       candy-cane trim accents. Surface colors only: no content, figure,
+       font size, or layout changes. Every rule is scoped to non-Peak
+       views (.board:not(.peak-on)) so Peak Mode / Game Time keeps its
+       current look entirely. Meaning colors are NOT recolored: green
+       makes / red misses, val-good / val-bad, the red urgent ticker, the
+       gold travel-path strip, Box 2's bright-red header bar, the red
+       RMHC and FOB lines in Box 3, and the RMHC warning flash all stay
+       exactly as they were. ===== */
+
+    /* Board canvas + page behind it */
+    html:not(.peak-on) body { background: #0c1a2e; }
+    .board:not(.peak-on) {
+      background: linear-gradient(180deg, #0c1a2e 0%, #10233c 55%, #0d1e33 100%);
+      color: #eef3f8;
+    }
+
+    /* ---------- Falling snow overlay ---------- */
+    .snow {
+      position: absolute; inset: 0; overflow: hidden;
+      pointer-events: none; z-index: 40;
+    }
+    .snow span {
+      position: absolute; top: -3%;
+      background: #ffffff; border-radius: 50%;
+      opacity: 0;
+      animation-name: snowfall; animation-timing-function: linear; animation-iteration-count: infinite;
+    }
+    @keyframes snowfall {
+      0%   { transform: translate3d(0, -20px, 0); opacity: 0; }
+      8%   { opacity: .85; }
+      50%  { transform: translate3d(26px, 560px, 0); }
+      92%  { opacity: .7; }
+      100% { transform: translate3d(-16px, 1120px, 0); opacity: 0; }
+    }
+    /* Snow never renders in Peak Mode. */
+    .board.peak-on .snow { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .snow span { animation: none; }
+    }
+
+    /* ---------- Candy cane glyph beside the board title ---------- */
+    .board:not(.peak-on) .brand { display: flex; align-items: center; gap: 14px; }
+    .board:not(.peak-on) .cane-glyph { flex: 0 0 auto; width: 30px; height: 40px; }
+
+    /* ---------- Header bars ----------
+       Home: translucent deep-night bar, silver bottom border, clock in
+       pale blue. Other pages: deep navy gradient, silver bottom border.
+       Candy-cane trim runs as a thin striped layer along the top edge. */
+    .board:not(.peak-on) header {
+      background-color: rgba(6, 13, 24, .55);
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px);
+      background-size: 100% 5px; background-position: top left; background-repeat: no-repeat;
+      color: #eef3f8;
+      border-bottom: 3px solid #c8d6e4;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    /* Home header (no view class active): the translucent night bar. */
+    .board:not(.peak-on):not(.promo-on):not(.seven-on):not(.food-on):not(.homealone-on):not(.homealonepic-on) header {
+      background-color: rgba(6, 13, 24, .55);
+      color: #f2f7fc;
+    }
+    .board:not(.peak-on):not(.promo-on):not(.seven-on):not(.food-on):not(.homealone-on):not(.homealonepic-on) .clock-time { color: #bcd2e8; }
+    .board:not(.peak-on):not(.promo-on):not(.seven-on):not(.food-on):not(.homealone-on):not(.homealonepic-on) .clock-date { color: #bcd2e8; }
+    /* Other pages' shared header: navy gradient under the candy trim. */
+    .board.promo-on header, .board.seven-on header, .board.food-on header,
+    .board.homealone-on header, .board.homealonepic-on header {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-color: transparent;
+    }
+    .board:not(.peak-on) .clock-date { color: #bcd2e8; }
+    .board:not(.peak-on) .mode-toggle .mt-label { color: #bcd2e8; }
+    .board:not(.peak-on) .mode-toggle button { border-color: #c8d6e4; }
+    .board:not(.peak-on) .rot-ind { color: #dcebfb; }
+
+    /* Edge chrome (nav arrows + sound buttons) on themed views only. */
+    .board:not(.peak-on) .nav-arrow { background: rgba(6, 13, 24, .88); border-color: #c8d6e4; box-shadow: 0 3px 10px rgba(0, 0, 0, .4); }
+    .board:not(.peak-on) .nav-arrow:hover { background: rgba(6, 13, 24, .97); }
+    .board:not(.peak-on) .whistle-btn { background: rgba(6, 13, 24, .88); border-color: #c8d6e4; box-shadow: 0 3px 10px rgba(0, 0, 0, .4); }
+
+    /* ---------- HOME: the four boxes ----------
+       Dark glass panels, silver border, candy-cane stripe along the top
+       edge; headings in pale blue over a silver divider. */
+    .board:not(.peak-on) .boxes-row .info-box {
+      background-color: rgba(21, 41, 66, .92);
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px);
+      background-size: 100% 5px; background-position: top left; background-repeat: no-repeat;
+      border: 1px solid #b9cbdd;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board:not(.peak-on) .boxes-row .ib-head {
+      background: transparent; color: #dcebfb;
+      border-bottom: 2px solid rgba(185, 203, 221, .45);
+    }
+    /* Box 2's bright-red header bar stays red, exactly as-is. */
+    .board:not(.peak-on) .boxes-row .ib-head.ib-head-alert {
+      background: #E8222D; border-bottom: 3px solid #B30F1A; color: #ffffff;
+    }
+    .board:not(.peak-on) .boxes-row .ib-news { color: #eef3f8; }
+    .board:not(.peak-on) .boxes-row .ib-news a { color: #a8d4ff; }
+    .board:not(.peak-on) .boxes-row .info-box .ib-line { color: #eef3f8; }
+    .board:not(.peak-on) .boxes-row .ib-sub { color: #bcd2e8; }
+    .board:not(.peak-on) .boxes-row .ib-big { border-bottom-color: rgba(185, 203, 221, .45); }
+    .board:not(.peak-on) .boxes-row .ib-mtd { color: #eef3f8; }
+    .board:not(.peak-on) .boxes-row .ib-of { color: #bcd2e8; }
+    .board:not(.peak-on) .boxes-row .progress { background: rgba(185, 203, 221, .28); }
+
+    /* MTD peaks table: frosted pale panel so the data colors stay exact. */
+    .board:not(.peak-on) .boxes-row .ib-peaks {
+      background: #eef3f7; color: #16283a;
+      border: 2px solid #c3d2df; border-radius: 6px;
+    }
+    .board:not(.peak-on) .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks { border-color: #c3d2df; }
+    .board:not(.peak-on) .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks thead th {
+      background: transparent; color: #33506e;
+      border-bottom: 2px solid #c3d2df; border-left-color: #c3d2df;
+    }
+    .board:not(.peak-on) .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody th {
+      color: #16283a; border-bottom-color: #d7e1ea; border-left-color: #d7e1ea;
+    }
+    .board:not(.peak-on) .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-peaks tbody td {
+      color: #16283a; border-bottom-color: #d7e1ea; border-left-color: #d7e1ea;
+    }
+    .board:not(.peak-on) .boxes-row .ib-peaks tbody tr:nth-child(even) { background: transparent; }
+    .board:not(.peak-on) .boxes-row .info-box:is(.ib-box-mtd, :nth-child(3)) .ib-body > .ib-line:last-child { border-top-color: rgba(185, 203, 221, .45); }
+
+    /* Home floor band: deep-night band, silver top border, pale text. */
+    .board:not(.peak-on) .floor-band {
+      background: rgba(6, 13, 24, .6); color: #e8f1fa;
+      border-top: 3px solid #c8d6e4;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board:not(.peak-on) .floor-band .fb-title {
+      background: transparent; color: #e8f1fa; border-right: 4px solid #c8d6e4;
+    }
+    .board:not(.peak-on) .floor-band .fb-name { color: #e8f1fa; }
+    .board:not(.peak-on) .floor-band .fb-time { color: #e8f1fa; }
+    .board:not(.peak-on) .floor-block + .floor-block::before { background: #c8d6e4; }
+
+    /* Travel-path strip: gold stays gold; candy-cane trim on its edges. */
+    .board:not(.peak-on) .travel-path {
+      background-color: #C9A227;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px);
+      background-size: 100% 4px, 100% 4px; background-position: top left, bottom left; background-repeat: no-repeat, no-repeat;
+      border-color: #C9A227; color: #12263F;
+    }
+
+    /* ---------- PROMOTIONS ---------- */
+    .board.promo-on .promo-head {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      color: #eef3f8;
+      box-shadow: inset 0 -3px 0 #c8d6e4, 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.promo-on .promo-head p { color: #bcd2e8; }
+    .board.promo-on .promo-col-head {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 4px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      color: #eef3f8; border-bottom: 3px solid #c8d6e4;
+    }
+    .board.promo-on .promo-item {
+      background: rgba(21, 41, 66, .92); color: #eef3f8;
+      border: 1px solid #b9cbdd;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.promo-on .promo-item strong { color: #dcebfb; }
+    .board.promo-on .promo-hero { border-color: #b9cbdd; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
+
+    /* ---------- 6-TO-10 (seven) ---------- */
+    .board.seven-on .seven-head {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      color: #eef3f8; border-bottom: 3px solid #c8d6e4;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.seven-on .seven-head p { color: #bcd2e8; }
+    .board.seven-on .totals-title { color: #dcebfb; }
+    .board.seven-on .seven-totals .total-tile {
+      background: rgba(21, 41, 66, .92);
+      border: 1px solid #b9cbdd;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.seven-on .seven-totals .total-tile .t-label { color: #bcd2e8; }
+    .board.seven-on .seven-totals .total-tile .t-value { color: #eef3f8; }
+    .board.seven-on .seven-totals .total-tile .t-value.val-bad { color: #c62828; }
+    .board.seven-on .seven-totals .total-tile .t-value.val-good { color: #1e7d32; }
+    .board.seven-on .seven-totals .total-tile .t-cap { color: #eef3f8; }
+    .board.seven-on .seven-card {
+      background: rgba(21, 41, 66, .92);
+      border: 1px solid #b9cbdd;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.seven-on .seven-row + .seven-row { border-top-color: rgba(185, 203, 221, .25); }
+    .board.seven-on .seven-row.col-head {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 4px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      color: #eef3f8;
+    }
+    .board.seven-on .seven-row.col-head .c-hour { color: #eef3f8; }
+    .board.seven-on .seven-row.col-head .c-val { color: #eef3f8; }
+    .board.seven-on .seven-row .c-hour { color: #dcebfb; }
+    .board.seven-on .seven-row .c-val { color: #eef3f8; }
+    .board.seven-on .seven-row .c-val.dash { color: #93a9c0; }
+    /* Light rows keep dark figures: the TOTAL row (pale green) and the
+       IN PROGRESS row (pale amber) sit on light fills. */
+    .board.seven-on .seven-row.total .c-hour { color: #12263f; }
+    .board.seven-on .seven-row.total .c-val { color: #12263f; }
+    .board.seven-on .seven-row.inprogress .c-hour { color: #12263f; }
+    .board.seven-on .seven-row.inprogress .c-val { color: #12263f; }
+    .board.seven-on .seven-row.inprogress .c-val.dash { color: #9aa3b5; }
+    .board.seven-on .seven-rmhc {
+      background: rgba(21, 41, 66, .92);
+      border: 1px solid #b9cbdd;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.seven-on .seven-rmhc-label {
+      background: linear-gradient(180deg, #12263f, #0a1728);
+      border-right: 4px solid #c8d6e4; color: #eef3f8;
+    }
+    .board.seven-on .seven-rmhc-value { color: #eef3f8; }
+    /* Warning ON: the RMHC figure sits on the yellow highlight, so it
+       takes the same dark ink the warning system uses elsewhere. */
+    .board.seven-on[data-rmhc-warning="on"] .seven-rmhc-value.rmhc-total { color: #1c2434; }
+    .board.seven-on .seven-note { color: #bcd2e8; }
+
+    /* ---------- HOME ALONE (crew guide) ---------- */
+    .board.homealone-on .ha-head {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-color: transparent; color: #eef3f8;
+      border-bottom: 3px solid #c8d6e4;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.homealone-on .ha-head p { color: #bcd2e8; }
+    .board.homealone-on .ha-card {
+      background: rgba(21, 41, 66, .92);
+      border: 1px solid #b9cbdd;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.homealone-on .ha-card-head {
+      background: linear-gradient(180deg, #12263f, #0a1728); color: #eef3f8;
+      border-bottom: 3px solid #c8d6e4;
+    }
+    .board.homealone-on .ha-head-note { color: #bcd2e8; }
+    .board.homealone-on .ha-col + .ha-col { border-left-color: rgba(185, 203, 221, .35); }
+    .board.homealone-on .ha-col-title { color: #dcebfb; }
+    .board.homealone-on .ha-text { color: #eef3f8; }
+    .board.homealone-on .ha-text strong { color: #dcebfb; }
+    .board.homealone-on .ha-steps li { color: #eef3f8; }
+    /* Alert red lightened one step so it stays clearly red yet readable
+       on the dark panel. */
+    .board.homealone-on .ha-alert { color: #ff938c; }
+    .board.homealone-on .ha-footnote {
+      background: rgba(6, 13, 24, .55); color: #dcebfb;
+      border-top-color: rgba(185, 203, 221, .35);
+    }
+    .board.homealone-on .ha-flurry { color: #eef3f8; }
+    .board.homealone-on .ha-flurry strong { color: #dcebfb; }
+    .board.homealone-on .ha-dates { border-bottom-color: #c8d6e4; }
+    .board.homealone-on .ha-dates .ha-dot { color: #c8d6e4; }
+
+    /* ---------- HOME ALONE PICTURE ---------- */
+    .board.homealonepic-on .ha-countdown {
+      background: rgba(6, 13, 24, .82); border-top: 3px solid #c8d6e4;
+    }
+    .board.homealonepic-on .ha-cd-unit-label { color: #bcd2e8; }
+
+    /* ---------- FOOD COST (surface colors only; poster not restructured) ----------
+       The poster takes the frosted pale panel treatment, like the MTD
+       peaks table, so every internal data color stays exact. */
+    .board.food-on .food-head {
+      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-color: transparent; color: #eef3f8;
+      border-bottom: 3px solid #c8d6e4;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    }
+    .board.food-on .poster {
+      background: #eef3f7; border-color: #b9cbdd; outline-color: #c3d2df;
+      color: #16283a;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+  </style>
   </head>
   <body>
     <div class="stage">
@@ -3136,6 +3421,8 @@
            TOTAL row's RMHC cell carries .rmhc-total, so only it joins
            the warning highlight. -->
       <div class="board" id="board" data-rmhc-warning="on" tabindex="0" aria-label="Live Big Board scoreboard">
+
+        <div class="snow" aria-hidden="true"></div>
 
         <div class="garland-frame" aria-hidden="true">
           <div class="gf gf-top"></div>
@@ -3184,6 +3471,7 @@
 
         <header>
           <div class="brand">
+            <svg class="cane-glyph" viewBox="0 0 36 48" aria-hidden="true" focusable="false"><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="rgba(6,13,24,.45)" stroke-width="12" stroke-linecap="round"/><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="#c62828" stroke-width="9" stroke-linecap="round" stroke-dasharray="6.5 6.5"/></svg>
             <h1>Shepherd Road McDonalds</h1>
           </div>
           <div class="head-right">
@@ -4131,6 +4419,27 @@
             });
           }
         } catch (e) {}
+      })();
+    </script>
+    <script>
+      /* Winter Night Snowfall: 30 small flakes drift over the board.
+         Pure decoration (pointer-events: none on the layer, flakes are
+         2-5.5px at low opacity so no text or number is ever obscured).
+         Negative delays mean snow is already falling on load. The layer
+         is hidden in Peak Mode by CSS (.board.peak-on .snow). */
+      (function () {
+        var snow = document.querySelector("#board .snow");
+        if (!snow) return;
+        for (var i = 0; i < 30; i++) {
+          var f = document.createElement("span");
+          var size = 2 + Math.random() * 3.5;
+          f.style.left = (Math.random() * 100) + "%";
+          f.style.width = size + "px";
+          f.style.height = size + "px";
+          f.style.animationDuration = (7 + Math.random() * 7) + "s";
+          f.style.animationDelay = (-Math.random() * 14) + "s";
+          snow.appendChild(f);
+        }
       })();
     </script>
   </body>
