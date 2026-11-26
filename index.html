@@ -3159,7 +3159,7 @@
 
     /* ---------- Candy cane glyph beside the board title ---------- */
     .board:not(.peak-on) .brand { display: flex; align-items: center; gap: 14px; }
-    .board:not(.peak-on) .cane-glyph { flex: 0 0 auto; width: 30px; height: 40px; }
+    .board:not(.peak-on) .cane-glyph { flex: 0 0 auto; width: 48px; height: 64px; }
 
     /* ---------- Header bars ----------
        Home: translucent deep-night bar, silver bottom border, clock in
@@ -3167,8 +3167,8 @@
        Candy-cane trim runs as a thin striped layer along the top edge. */
     .board:not(.peak-on) header {
       background-color: rgba(6, 13, 24, .55);
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px);
-      background-size: 100% 5px; background-position: top left; background-repeat: no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px);
+      background-size: 100% 16px; background-position: top left; background-repeat: no-repeat;
       color: #eef3f8;
       border-bottom: 3px solid #c8d6e4;
       box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
@@ -3183,8 +3183,8 @@
     /* Other pages' shared header: navy gradient under the candy trim. */
     .board.promo-on header, .board.seven-on header, .board.food-on header,
     .board.homealone-on header, .board.homealonepic-on header {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 16px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       background-color: transparent;
     }
     .board:not(.peak-on) .clock-date { color: #bcd2e8; }
@@ -3202,8 +3202,9 @@
        edge; headings in pale blue over a silver divider. */
     .board:not(.peak-on) .boxes-row .info-box {
       background-color: rgba(21, 41, 66, .92);
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px);
-      background-size: 100% 5px; background-position: top left; background-repeat: no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px);
+      background-size: 100% 16px; background-position: top left; background-repeat: no-repeat;
+      padding-top: 11px;
       border: 1px solid #b9cbdd;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
     }
@@ -3259,22 +3260,24 @@
     /* Travel-path strip: gold stays gold; candy-cane trim on its edges. */
     .board:not(.peak-on) .travel-path {
       background-color: #C9A227;
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px);
-      background-size: 100% 4px, 100% 4px; background-position: top left, bottom left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px);
+      background-size: 100% 14px, 100% 14px; background-position: top left, bottom left; background-repeat: no-repeat, no-repeat;
       border-color: #C9A227; color: #12263F;
     }
 
     /* ---------- PROMOTIONS ---------- */
     .board.promo-on .promo-head {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 16px, 100% 100%;
+      padding-top: 20px; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       color: #eef3f8;
       box-shadow: inset 0 -3px 0 #c8d6e4, 0 4px 14px rgba(0, 0, 0, .35);
     }
     .board.promo-on .promo-head p { color: #bcd2e8; }
     .board.promo-on .promo-col-head {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 4px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 14px, 100% 100%;
+      padding-top: 17px; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       color: #eef3f8; border-bottom: 3px solid #c8d6e4;
     }
     .board.promo-on .promo-item {
@@ -3287,8 +3290,9 @@
 
     /* ---------- 6-TO-10 (seven) ---------- */
     .board.seven-on .seven-head {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 16px, 100% 100%;
+      padding-top: 15px; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       color: #eef3f8; border-bottom: 3px solid #c8d6e4;
       box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
     }
@@ -3311,8 +3315,8 @@
     }
     .board.seven-on .seven-row + .seven-row { border-top-color: rgba(185, 203, 221, .25); }
     .board.seven-on .seven-row.col-head {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 4px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 12px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       color: #eef3f8;
     }
     .board.seven-on .seven-row.col-head .c-hour { color: #eef3f8; }
@@ -3344,8 +3348,9 @@
 
     /* ---------- HOME ALONE (crew guide) ---------- */
     .board.homealone-on .ha-head {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 16px, 100% 100%;
+      padding-top: 13px; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       background-color: transparent; color: #eef3f8;
       border-bottom: 3px solid #c8d6e4;
       box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
@@ -3388,8 +3393,9 @@
        The poster takes the frosted pale panel treatment, like the MTD
        peaks table, so every internal data color stays exact. */
     .board.food-on .food-head {
-      background-image: repeating-linear-gradient(45deg, #c62828 0 10px, #ffffff 10px 20px), linear-gradient(180deg, #12263f, #0a1728);
-      background-size: 100% 5px, 100% 100%; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
+      background-image: repeating-linear-gradient(45deg, #c62828 0 24px, #ffffff 24px 48px), linear-gradient(180deg, #12263f, #0a1728);
+      background-size: 100% 16px, 100% 100%;
+      padding-top: 12px; background-position: top left, top left; background-repeat: no-repeat, no-repeat;
       background-color: transparent; color: #eef3f8;
       border-bottom: 3px solid #c8d6e4;
       box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
@@ -3399,6 +3405,10 @@
       color: #16283a;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 4px 14px rgba(0, 0, 0, .35);
     }
+    .board:not(.peak-on) header { padding-top: 15px; }
+    .board:not(.peak-on):not(.promo-on) header { padding-top: 12px; }
+    .board.seven-on:not(.peak-on):not(.promo-on) header { padding-top: 14px; }
+    .board.food-on:not(.peak-on):not(.promo-on) header { padding-top: 12px; }
   </style>
   </head>
   <body>
@@ -3471,7 +3481,7 @@
 
         <header>
           <div class="brand">
-            <svg class="cane-glyph" viewBox="0 0 36 48" aria-hidden="true" focusable="false"><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="rgba(6,13,24,.45)" stroke-width="12" stroke-linecap="round"/><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="#c62828" stroke-width="9" stroke-linecap="round" stroke-dasharray="6.5 6.5"/></svg>
+            <svg class="cane-glyph" viewBox="0 0 36 48" aria-hidden="true" focusable="false"><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="rgba(6,13,24,.45)" stroke-width="12" stroke-linecap="round"/><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/><path d="M13 44 V17 a9 9 0 1 1 18 0" fill="none" stroke="#c62828" stroke-width="9" stroke-linecap="round" stroke-dasharray="10 10"/></svg>
             <h1>Shepherd Road McDonalds</h1>
           </div>
           <div class="head-right">
@@ -3625,8 +3635,8 @@
                 <div class="peak-grid">
                   <div class="pg-row col-head"><span>Hour</span><span style="text-align:center">OEPE</span><span style="text-align:center">R2P</span><span style="text-align:center">KVS</span><span style="text-align:center">Side 2</span></div>
                   <div class="pg-row" data-start="11" data-end="12"><span class="c-hour">11&ndash;12</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-                  <div class="pg-row inprogress" data-start="12" data-end="13"><span class="c-hour">12&ndash;1<span class="ip-pill">IN PROGRESS</span></span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-                  <div class="pg-row" data-start="13" data-end="14"><span class="c-hour">1&ndash;2 &middot; Up next</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+                  <div class="pg-row" data-start="12" data-end="13"><span class="c-hour">12&ndash;1</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+                  <div class="pg-row inprogress" data-start="13" data-end="14"><span class="c-hour">1&ndash;2<span class="ip-pill">IN PROGRESS</span></span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
                   <div class="pg-row total"><span class="c-hour">Total</span><span class="c-val"></span><span class="c-val"></span><span class="c-val"></span><span class="c-val"></span></div>
                 </div>
               </div>
@@ -3945,8 +3955,8 @@
             <div class="seven-row"><span class="c-hour">9&ndash;10 AM</span><span class="c-val">154<span class="mark bad">&#10007;</span></span><span class="c-val">172<span class="mark bad">&#10007;</span></span><span class="c-val">54<span class="mark bad">&#10007;</span></span><span class="c-val">100%<span class="mark ok">&#10003;</span></span><span class="c-val dash">&mdash;</span><span class="c-val">$32.56</span></div>
             <div class="seven-row"><span class="c-hour">10&ndash;11 AM</span><span class="c-val">168<span class="mark bad">&#10007;</span></span><span class="c-val">79<span class="mark ok">&#10003;</span></span><span class="c-val">128<span class="mark bad">&#10007;</span></span><span class="c-val">67%<span class="mark bad">&#10007;</span></span><span class="c-val dash">&mdash;</span><span class="c-val">$37.76</span></div>
             <div class="seven-row"><span class="c-hour">11 AM&ndash;12 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val">$37.76</span></div>
-            <div class="seven-row inprogress"><span class="c-hour">12&ndash;1 PM<span class="ip-pill">IN PROGRESS</span></span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
-            <div class="seven-row"><span class="c-hour">1&ndash;2 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
+            <div class="seven-row"><span class="c-hour">12&ndash;1 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val">$37.76</span></div>
+            <div class="seven-row inprogress"><span class="c-hour">1&ndash;2 PM<span class="ip-pill">IN PROGRESS</span></span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
             <div class="seven-row"><span class="c-hour">2&ndash;3 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
             <div class="seven-row"><span class="c-hour">3&ndash;4 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
             <div class="seven-row"><span class="c-hour">4&ndash;5 PM</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span><span class="c-val dash">&mdash;</span></div>
