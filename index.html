@@ -3650,9 +3650,11 @@
         var override = null;      // "peak" | "off" | "promo" | null
         var overrideStamp = null; // auto mode at the moment the override was set
         var appliedMode = null;
-        /* Auto-rotation (signage): outside peak windows, Home and Promotions
-           swap every 45 seconds. Any manual choice sets an override, which
-           pauses rotation until the next peak-window change or a reload. */
+        /* Auto-rotation (signage): outside peak windows, views rotate on a
+           per-view dwell (30 seconds each; the Home Alone countdown picture
+           holds for 60 seconds — see ROT_DURATIONS). Any manual choice sets
+           an override, which pauses rotation until the next peak-window
+           change or a reload. */
         var rotView = "off";        // view the rotation is currently showing
         var rotSince = Date.now();  // when the current rotation view started
         var prevAuto = null;        // last seen auto mode, to spot window changes
@@ -3666,6 +3668,7 @@
         var VIEW_ORDER = ["off", "seven", "promo", "homealone", "homealonepic", "food", "peak"];
         var VIEW_NAMES = { off: "Off-Peak", promo: "Promotions", homealone: "Home Alone Meal", homealonepic: "Home Alone Picture", food: "Food Cost", seven: "6 to 10", peak: "Peak" };
         var ROT_ORDER = ["off", "seven", "promo", "homealone", "homealonepic"];
+        var ROT_DURATIONS = { off: 30000, seven: 30000, promo: 30000, homealone: 30000, homealonepic: 60000 };
 
         function autoMode(d) {
           var mins = d.getHours() * 60 + d.getMinutes();
@@ -3803,7 +3806,7 @@
           if (prevAuto === null) prevAuto = am;
           if (am !== prevAuto) {
             /* Peak window changed: any manual pause ends and the rotation
-               restarts on Home with a fresh 45-second timer. */
+               restarts on Home with a fresh dwell timer. */
             prevAuto = am;
             rotView = "off";
             rotSince = now.getTime();
@@ -3815,7 +3818,7 @@
           } else if (am === "peak") {
             mode = "peak"; // peak windows own the screen, no rotation
           } else {
-            if (now.getTime() - rotSince >= 45000) {
+            if (now.getTime() - rotSince >= (ROT_DURATIONS[rotView] || 30000)) {
               var ri = ROT_ORDER.indexOf(rotView);
               if (ri < 0) ri = 0;
               rotView = ROT_ORDER[(ri + 1) % ROT_ORDER.length];
