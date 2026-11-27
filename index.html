@@ -3419,7 +3419,62 @@
        styling either: plain board type, no slab poster font or shadow. */
     .board.food-on .food-view .poster-title { font-family: "Barlow Condensed", "Barlow", sans-serif; font-weight: 700; color: #16283a; text-shadow: none; letter-spacing: .03em; }
   </style>
-  </head>
+    <style>
+    /* ===== ORDER TAKING STANDARDS band (Home only, approved mockup) =====
+       Wide band between the two Home columns and the RUNNING THE FLOOR
+       TODAY band: centered gold-bordered label over a yellow #FFC72C
+       poster with three white panels, red #DA291C headers and checks,
+       bold black text, no photos or icons. Funded the approved way: the
+       boxes row flexes instead of holding its fixed 778px, the What We
+       Need to Work On box sizes to its content, and the RMHC + MTD
+       Operations box keeps all remaining right-column height so the full
+       MTD peaks table (all three rows) and the Food Over Base line stay
+       on screen. Hidden in Peak Mode (main is hidden in every other
+       view, so the band never shows there). Christmas theme untouched. */
+    html:not(.stacked) .board:not(.peak-on):not(.promo-on) main .boxes-row { flex: 1 1 auto; height: auto; min-height: 0; }
+    html:not(.stacked) .boxes-col-right .info-box:first-child { flex: 0 0 auto; }
+    html:not(.stacked) .boxes-col-right .info-box.ib-box-mtd { flex: 1 1 auto; min-height: 0; }
+    .board.peak-on .ot-band { display: none; }
+    /* Full main width (aligned with the ticker, travel path and floor
+       bands): the wider panels wrap to fewer lines, which is the rest of
+       the band's height funding alongside the Work On box above. */
+    .ot-band { flex: 0 0 auto; margin: 2px 0 0; }
+    .ot-label {
+      width: fit-content; margin: 0 auto 3px; padding: 1px 12px;
+      border: 2px solid #FFC72C; border-radius: 8px;
+      background: rgba(0, 0, 0, 0.25); color: #FFC72C;
+      font-family: "Barlow Condensed", "Barlow", sans-serif; font-weight: 700;
+      font-size: 19px; letter-spacing: 0.1em; line-height: 1.1; text-align: center;
+      white-space: nowrap;
+    }
+    .ot-poster { background: #FFC72C; border-radius: 10px; padding: 3px; display: flex; gap: 6px; }
+    .ot-col { flex: 1 1 0; min-width: 0; background: #ffffff; border-radius: 8px; padding: 3px 11px 4px; }
+    /* Panels flex in proportion to their text: Greet and Clarifying
+       Questions carry the long lines, Finish carries short ones, so the
+       wide panels wrap to fewer lines and the poster stays short. */
+    .ot-col.ot-greet { flex-grow: 1.06; }
+    .ot-col.ot-clarify { flex-grow: 1.12; }
+    .ot-col.ot-finish { flex-grow: 0.82; }
+    .ot-col h3 {
+      margin: 0 0 3px; padding: 2px 8px; border-radius: 6px;
+      background: #DA291C; color: #ffffff; text-align: center;
+      font-family: "Barlow Condensed", "Barlow", sans-serif; font-weight: 700;
+      font-size: 18px; letter-spacing: 0.03em; line-height: 1.1;
+    }
+    .ot-col .ot-lead { margin: 0 0 2px; font-size: 16px; font-weight: 800; color: #111111; line-height: 1.13; }
+    .ot-col ul { list-style: none; margin: 0; padding: 0; }
+    .ot-col li {
+      position: relative; margin: 2px 0; padding-left: 21px;
+      font-size: 16px; font-weight: 700; color: #111111; line-height: 1.13;
+    }
+    .ot-col li::before {
+      content: "\2713"; position: absolute; left: 1px; top: 0;
+      color: #DA291C; font-weight: 800;
+    }
+    .stacked .ot-band { margin: 10px 0 0; }
+    .stacked .ot-poster { flex-direction: column; }
+  </style>
+</head>
   <body>
     <div class="stage">
       <!-- RMHC WARNING SWITCH: data-rmhc-warning on #board is the single
@@ -3589,6 +3644,36 @@
             </div>
             </div>
           </section>
+
+          <div class="ot-band" aria-label="Order Taking Standards">
+            <div class="ot-label">ORDER TAKING STANDARDS</div>
+            <div class="ot-poster" role="img" aria-label="OT Standards: greet within 10 seconds, no interruptions, ask clarifying questions with specifics, never ask what size, drink or sauce, Happy Meals come with apples, and finish by confirming the order, checking the screen, and asking to round up for RMHC">
+              <div class="ot-col ot-greet">
+                <h3>GREET</h3>
+                <ul>
+                  <li>Greet within 10 seconds: &ldquo;Hi, will you be using the mobile app today?&rdquo;</li>
+                  <li>NO INTERRUPTIONS! Let the guest finish &mdash; no &ldquo;OK&rdquo; or &ldquo;Alright&rdquo; between pauses &mdash; then ask clarifying questions</li>
+                </ul>
+              </div>
+              <div class="ot-col ot-clarify">
+                <h3>CLARIFYING QUESTIONS</h3>
+                <ul>
+                  <li>Ask a specific: &ldquo;Will that be Large?&rdquo; &ldquo;Will that be Coke?&rdquo; &ldquo;Will that be BBQ?&rdquo; &ldquo;Will that be Oreo?&rdquo;</li>
+                  <li>DO NOT ASK: What size? What drink? What sauce?</li>
+                  <li>Happy Meals come with apples &mdash; DO NOT ASK</li>
+                </ul>
+              </div>
+              <div class="ot-col ot-finish">
+                <h3>FINISH</h3>
+                <p class="ot-lead">Finally ask:</p>
+                <ul>
+                  <li>&ldquo;Will that complete your order?&rdquo;</li>
+                  <li>&ldquo;Is your order correct on the screen?&rdquo;</li>
+                  <li>&ldquo;Would you like to round up your change for RMHC?&rdquo;</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
                     <section class="totals-sec" aria-label="Running totals">
             <div class="totals-head">
