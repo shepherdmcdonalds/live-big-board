@@ -3474,6 +3474,54 @@
     .stacked .ot-band { margin: 10px 0 0; }
     .stacked .ot-poster { flex-direction: column; }
   </style>
+  <style>
+    /* ===== FOOD SAFETY (Home): habits strip under the travel path +
+       FOOD SAFETY TIP as the last Work On item. The red urgent ticker is
+       gone; its 44px funds this 36px strip, and the Work On box keeps
+       sizing to its content so the RMHC + MTD box keeps the remaining
+       right-column height with the peaks table now at its bottom. ===== */
+    .fs-strip {
+      flex: 0 0 auto; display: flex; align-items: center; gap: 16px;
+      height: 36px; margin: 4px 0 0; padding: 0 16px;
+      background: #12263F; border: 2px solid #FFC72C; border-radius: 9px;
+      overflow: hidden;
+    }
+    .board.peak-on .fs-strip { display: none; }
+    .fs-tag {
+      flex: 0 0 auto; background: #FFC72C; color: #12263F;
+      font-family: "Barlow Condensed", "Barlow", sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 0.06em; line-height: 1.1;
+      padding: 2px 10px; border-radius: 6px; white-space: nowrap;
+    }
+    .fs-lines { position: relative; flex: 1 1 auto; min-width: 0; height: 100%; }
+    .fs-line {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-family: "Barlow Condensed", "Barlow", sans-serif; font-weight: 700;
+      font-size: 24px; letter-spacing: 0.08em; color: #ffffff; white-space: nowrap;
+      opacity: 0; animation: fsCycle 24s linear infinite;
+    }
+    .fs-line.fs-2 { animation-delay: 6s; }
+    .fs-line.fs-3 { animation-delay: 12s; }
+    .fs-line.fs-4 { animation-delay: 18s; }
+    @keyframes fsCycle {
+      0% { opacity: 0; } 2% { opacity: 1; } 23% { opacity: 1; } 25% { opacity: 0; } 100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fs-line { animation: none; }
+      .fs-line.fs-1 { opacity: 1; }
+    }
+    .boxes-row .ib-fs-tip { font-size: 24px; line-height: 1.18; }
+    .fs-tip-label {
+      display: inline-block; background: #FFC72C; color: #12263F;
+      font-weight: 800; font-size: 20px; letter-spacing: 0.05em; line-height: 1.15;
+      padding: 1px 9px; border-radius: 6px; margin-right: 10px;
+      vertical-align: 2px; white-space: nowrap;
+    }
+    .boxes-col-right .info-box:first-child .ib-body { padding-top: 6px; padding-bottom: 6px; }
+    .stacked .fs-strip { margin-top: 6px; height: 34px; padding: 0 10px; gap: 10px; }
+    .stacked .fs-tag { font-size: 16px; padding: 2px 7px; }
+    .stacked .fs-line { font-size: 18px; letter-spacing: 0.02em; }
+  </style>
 </head>
   <body>
     <div class="stage">
@@ -3570,21 +3618,20 @@
         </header>
 
         <main>
-          <div class="urgent-ticker" role="alert" aria-label="Urgent: 🚨 HAPPY THANKSGIVING!!! 🚨">
-            <span class="ut-siren ut-left" aria-hidden="true">🚨</span>
-            <div class="ut-window">
-              <div class="ut-track">
-                <span class="ut-text">HAPPY THANKSGIVING!!!</span>
-                <span class="ut-text" aria-hidden="true">HAPPY THANKSGIVING!!!</span>
-              </div>
-            </div>
-            <span class="ut-siren ut-right" aria-hidden="true">🚨</span>
-          </div>
-
           <div class="travel-path" role="note" aria-label="Travel Path reminder: once an hour, every hour">
             <span class="tp-glyph" aria-hidden="true">🚶</span>
             <span class="tp-text">TRAVEL PATH &middot; ONCE AN HOUR, EVERY HOUR</span>
           </div>
+          <div class="fs-strip" role="note" aria-label="Food Safety Habits">
+            <span class="fs-tag">FOOD SAFETY HABITS</span>
+            <span class="fs-lines">
+              <span class="fs-line fs-1">WASH HANDS &middot; EVERY HOUR, AND BEFORE GLOVING</span>
+              <span class="fs-line fs-2">BLUE GLOVES &middot; ALL RAW PRODUCT, EVERY STATION</span>
+              <span class="fs-line fs-3">CHECK ALL CODE DATES &middot; NOTHING EXPIRED, EVER</span>
+              <span class="fs-line fs-4">ALL COOLERS MUST BE BELOW 41&deg;</span>
+            </span>
+          </div>
+
 
           <section class="boxes-row" aria-label="News, work-ons, and RMHC with MTD operations">
             <div class="boxes-col boxes-col-left">
@@ -3616,6 +3663,7 @@
               <div class="ib-body">
                 <p class="ib-news"><strong>Biggest miss: Dinner KVS 61 sec</strong> yesterday, over the 60 target.</p>
                 <p class="ib-news"><strong>Raw Waste was $39</strong> yesterday, over our $35 mark. Watch portions, record all waste.</p>
+                <p class="ib-news ib-fs-tip"><span class="fs-tip-label">FOOD SAFETY TIP</span> Wash hands every hour, and always before you glove up. If in doubt, wash your hands.</p>
               </div>
             </div>
             <div class="info-box ib-box-mtd">
@@ -3628,6 +3676,8 @@
                 <div class="progress" role="img" aria-label="RMHC progress: 81.8 percent of the $2,500 goal">
                   <div class="progress-fill" style="width: 81.8%"></div>
                 </div>
+                <div class="ib-line" style="color: #1e7d32; font-weight: 700;">MTD Sales up 2.4% vs last year</div>
+                <div class="ib-line">Food Over Base <strong>2.28%</strong> vs 2.70% target <span class="ok">&#10003;</span></div>
                 <table class="ib-peaks" aria-label="MTD peak averages through Nov 25">
                   <thead>
                     <tr><th scope="col">Peak</th><th scope="col">OEPE</th><th scope="col">R2P</th><th scope="col">KVS</th><th scope="col">Side 2</th></tr>
@@ -3638,8 +3688,6 @@
                     <tr><th scope="row">Dinner</th><td>118 <span class="ok">&#10003;</span></td><td>53 <span class="ok">&#10003;</span></td><td>37 <span class="ok">&#10003;</span></td><td>97% <span class="ok">&#10003;</span></td></tr>
                   </tbody>
                 </table>
-                <div class="ib-line" style="color: #1e7d32; font-weight: 700;">MTD Sales up 2.4% vs last year</div>
-                <div class="ib-line">Food Over Base <strong>2.28%</strong> vs 2.70% target <span class="ok">&#10003;</span></div>
               </div>
             </div>
             </div>
